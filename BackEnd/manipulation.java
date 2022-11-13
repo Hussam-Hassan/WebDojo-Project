@@ -78,26 +78,29 @@ public class manipulation {
         return list;
     }
 
-    public static Bean getRecordById(int customerPONumber) {
+    public static Bean getRecordById(int E7) {
         Bean bean = null;
         try {
              DbConnect xampp= connect();
-            PreparedStatement ps = xampp.prepareStatement("select * from licenseproof where Entity7 = ?");
-            ps.setInt(1, customerPONumber);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+            
+            PreparedStatement x = xampp.prepareStatement("select * from licenseproof where Entity7 = ?");
+            
+            x.setInt(1, E7);
+            
+            ResultSet v = x.executeQuery();
+            while (v.next()) {
                 bean = new Bean();
-                bean.setEntity1(rs.getString("Entity1"));
-                bean.setEntity2(rs.getString("Entity2"));
-                bean.setEntity3(rs.getString("Entity3"));
-                bean.setEntity4(rs.getString("Entity4"));
-                bean.setEntity5(rs.getString("Entity5"));
-                bean.setEntity6(rs.getString("Entity6"));
-                bean.setEntity7(rs.getInt("Entity7"));
-                bean.setEntity8(rs.getString("Entity8"));
-                bean.setEntity9(rs.getString("Entity9"));
-                bean.setEntity10(rs.getString("Entity10"));
-                bean.setEntity11(rs.getString("Entity11"));
+                bean.setEntity1(v.getString("Entity1"));
+                bean.setEntity2(v.getString("Entity2"));
+                bean.setEntity3(v.getString("Entity3"));
+                bean.setEntity4(v.getString("Entity4"));
+                bean.setEntity5(v.getString("Entity5"));
+                bean.setEntity6(v.getString("Entity6"));
+                bean.setEntity7(v.getInt("Entity7"));
+                bean.setEntity8(v.getString("Entity8"));
+                bean.setEntity9(v.getString("Entity9"));
+                bean.setEntity10(v.getString("Entity10"));
+                bean.setEntity11(v.getString("Entity11"));
             }
         } catch (Exception exp) {
             exp.printStackTrace();
