@@ -26,23 +26,23 @@ public class manipulation {
         int st = 0;
         try {
              DbConnect xampp= connect();
-            PreparedStatement ps = xampp.prepareStatement("INSERT INTO licenseproof("
+            PreparedStatement ex = xampp.prepareStatement("INSERT INTO licenseproof("
                     + "Entity1, Entity2, Entity3, Entity4, Entity5, Entity6, Entity7, Entity8, Entity9, Entity10, Entity11) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-            ps.setString(1, bean.getEntity1());
-            ps.setString(2, bean.getEntity2());
-            ps.setString(3, bean.getEntity3());
-            ps.setString(4, bean.getEntity4());
-            ps.setString(5, bean.getEntity5());
-            ps.setString(6, bean.getEntity6());
-            ps.setInt(7, bean.getEntity7());
-            ps.setString(8, bean.getEntity8());
-            ps.setString(9, bean.getEntity9());
-            ps.setString(10, bean.getEntity10());
-            ps.setString(11, bean.getEntity11());
+            ex.setString(1, bean.getEntity1());
+            ex.setString(2, bean.getEntity2());
+            ex.setString(3, bean.getEntity3());
+            ex.setString(4, bean.getEntity4());
+            ex.setString(5, bean.getEntity5());
+            ex.setString(6, bean.getEntity6());
+            ex.setInt(7, bean.getEntity7());
+            ex.setString(8, bean.getEntity8());
+            ex.setString(9, bean.getEntity9());
+            ex.setString(10, bean.getEntity10());
+            ex.setString(11, bean.getEntity11());
 
 
-            st = ps.executeUpdate();
+            st = ex.executeUpdate();
         } catch (Exception exp) {
             exp.printStackTrace();
         }
@@ -54,21 +54,21 @@ public class manipulation {
 
         try {
              DbConnect xampp= connect();
-            PreparedStatement ps = xampp.prepareStatement("select * from licenseproof");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+            PreparedStatement ex = xampp.prepareStatement("select * from licenseproof");
+            ResultSet v = ex.executeQuery();
+            while (v.next()) {
                 Bean bean = new Bean();
-                bean.setEntity1(rs.getString("Entity1"));
-                bean.setEntity2(rs.getString("Entity2"));
-                bean.setEntity3(rs.getString("Entity3"));
-                bean.setEntity4(rs.getString("Entity4"));
-                bean.setEntity5(rs.getString("Entity5"));
-                bean.setEntity6(rs.getString("Entity6"));
-                bean.setEntity7(rs.getInt("Entity7"));
-                bean.setEntity8(rs.getString("Entity8"));
-                bean.setEntity9(rs.getString("Entity9"));
-                bean.setEntity10(rs.getString("Entity10"));
-                bean.setEntity11(rs.getString("Entity11"));
+                bean.setEntity1(v.getString("Entity1"));
+                bean.setEntity2(v.getString("Entity2"));
+                bean.setEntity3(v.getString("Entity3"));
+                bean.setEntity4(v.getString("Entity4"));
+                bean.setEntity5(v.getString("Entity5"));
+                bean.setEntity6(v.getString("Entity6"));
+                bean.setEntity7(v.getInt("Entity7"));
+                bean.setEntity8(v.getString("Entity8"));
+                bean.setEntity9(v.getString("Entity9"));
+                bean.setEntity10(v.getString("Entity10"));
+                bean.setEntity11(v.getString("Entity11"));
 
                 list.add(bean);
             }
@@ -82,12 +82,9 @@ public class manipulation {
         Bean bean = null;
         try {
              DbConnect xampp= connect();
-            
-            PreparedStatement x = xampp.prepareStatement("select * from licenseproof where Entity7 = ?");
-            
-            x.setInt(1, E7);
-            
-            ResultSet v = x.executeQuery();
+            PreparedStatement ex = xampp.prepareStatement("select * from licenseproof where Entity7 = ?");
+            ex.setInt(1, E7);
+            ResultSet v = ex.executeQuery();
             while (v.next()) {
                 bean = new Bean();
                 bean.setEntity1(v.getString("Entity1"));
