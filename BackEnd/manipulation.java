@@ -14,6 +14,7 @@ public class manipulation {
             Class.forName("com.mysql.jdbc.Driver");
             xampp= DriverManager.connect(url, username, password);
         }
+        
 
         catch (Exception exp) {
             exp.printStackTrace();
@@ -72,7 +73,10 @@ public class manipulation {
 
                 list.add(bean);
             }
-        } catch (Exception exp) {
+            
+        } 
+        
+        catch (Exception exp) {
             exp.printStackTrace();
         }
         return list;
@@ -99,7 +103,9 @@ public class manipulation {
                 bean.setEntity10(v.getString("Entity10"));
                 bean.setEntity11(v.getString("Entity11"));
             }
-        } catch (Exception exp) {
+        } 
+        
+        catch (Exception exp) {
             exp.printStackTrace();
         }
         return bean;
